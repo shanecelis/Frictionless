@@ -8,7 +8,7 @@ namespace Frictionless
 {
 	public static class MessageRouter
 	{
-		private static readonly HashSet<Action> Clearers = new();
+		private static readonly HashSet<Action> Clearers = new HashSet<Action>();
 
 		public static void AddHandler<T>(Action<T> handler)
 		{
@@ -52,8 +52,8 @@ namespace Frictionless
 		public class MessageHandler<T> : MessageHandlerBase
 		{
 			public static bool _isRaisingMessage;
-			public static readonly List<Action<T>> Handlers = new();
-			public static readonly List<Action<T>> PendingRemovals = new();
+			public static readonly List<Action<T>> Handlers = new List<Action<T>>();
+			public static readonly List<Action<T>> PendingRemovals = new List<Action<T>>();
 
 			public static void Clear()
 			{
