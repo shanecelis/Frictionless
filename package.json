@@ -13,6 +13,12 @@
   ],
   "dependencies": {
   },
+  "samples": [
+    {
+      "displayName": "Test Scenes",
+      "path": "Samples~/TestScenes"
+    }
+  ],
   "author": {
     "name": "Mojo Games",
     "email": "info@mojo-games.co",
