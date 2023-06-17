@@ -64,6 +64,14 @@ namespace Frictionless
 			singletonInstances[typeof(TConcrete)] = instance;
 		}
 
+        public static void UnregisterSingleton<TConcrete>(TConcrete instance)
+        {
+            if (singletonInstances.ContainsKey(typeof(TConcrete)))
+            {
+                singletonInstances.Remove(typeof(TConcrete));
+            }
+        }
+
 		public static void RegisterTransient<TAbstract,TConcrete>()
 		{
 			transients[typeof(TAbstract)] = typeof(TConcrete);
