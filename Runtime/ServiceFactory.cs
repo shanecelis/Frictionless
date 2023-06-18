@@ -16,6 +16,14 @@ namespace Frictionless
 		private static readonly Dictionary<Type,Type> transients = new Dictionary<Type, Type>();
 		private static readonly Dictionary<Type,object> singletonInstances = new Dictionary<Type, object>();
 
+        /// Call Reset if Domain Reloading is enabled. Otherwise the state will carry over
+        /// from run to run in the editor.
+        // https://blogs.unity3d.com/2019/11/05/enter-play-mode-faster-in-unity-2019-3/
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void Init() {
+            Reset();
+        }
+
 		public static bool IsEmpty
 		{
 			get { return singletons.Count == 0 && transients.Count == 0; }
